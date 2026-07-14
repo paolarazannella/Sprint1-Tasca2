@@ -13,9 +13,9 @@ echo "<br>";
 echo $boolean;
 echo "<br>";
 
-define("mi_nombre", "Paola");
+define("MI-NOMBRE", "Paola");
 echo "<h1>";
-echo mi_nombre;
+echo MI-NOMBRE;
 echo "</h1>";
 
 ?>
