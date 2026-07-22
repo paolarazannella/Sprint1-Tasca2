@@ -4,18 +4,14 @@ $double = 24.2;
 $string = "Hola";
 $boolean = true;
 
-echo $int;
-echo "<br>";
-echo $double;
-echo "<br>";
-echo $string;
-echo "<br>";
-echo $boolean;
-echo "<br>";
+echo $int . " is a " . gettype($int) . PHP_EOL;
+echo $double . " is a " . gettype($double) . PHP_EOL;
+echo $string . " is a " . gettype($string) . PHP_EOL;
+echo $boolean . " is a " . gettype($boolean) . PHP_EOL;
 
-define("MI-NOMBRE", "Paola");
+
+define("MY_NAME", "Paola");
 echo "<h1>";
-echo MI-NOMBRE;
+echo MY_NAME;
 echo "</h1>";
 
-?>

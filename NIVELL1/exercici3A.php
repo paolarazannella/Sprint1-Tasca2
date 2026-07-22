@@ -62,4 +62,3 @@ echo "El producto de todas las variables es: " .($X * $Y * $N * $M);
 echo "<br>";
 
 
-?>

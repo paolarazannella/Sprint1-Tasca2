@@ -1,47 +1,35 @@
 <?php
+function calculator($num1, $num2, $operation){
+    
+    switch ($operation) {
 
-function op ($num1, $num2, $operacion)
-{
-    if (!is_numeric($num1) || !is_numeric($num2)) {
-        return "Error: los valores deben ser números";
-    }
-
-    switch ($operacion) {
-
-        case "suma":
+        case "addition":
             return $num1 + $num2;
 
-        case "resta":
+        case "subtraction":
             return $num1 - $num2;
 
-        case "multiplicacion":
+        case "multiplication":
             return $num1 * $num2;
 
         case "division":
 
             if ($num2 == 0) {
-                return "Error: no se puede dividir entre 0";
+                throw new InvalidArgumentException("Error: cannot divide by 0");
             }
 
             return $num1 / $num2;
-
-        default:
-            return "Error: operación no válida";
     }
 }
-echo " numero 1 es igual a 8 y numero 2 es igual a 4";
-echo "<br>";
 
-echo "suma = " .op(8, 4, "suma");
-echo "<br>";
+try {
+    $num1 = 8.3;
+    $num2 = 2;
 
-echo "resta = " .op(8, 4, "resta");
-echo "<br>";
-
-echo "multiplicación = " .op(8, 4, "multiplicacion");
-echo "<br>";
-
-echo "división = " .op(8, 4, "division");
-echo "<br>";
-
-?>
+    echo "$num1 + $num2 = " . calculator($num1, $num2, "addition") . "<br>";
+    echo "$num1 - $num2 = " . calculator($num1, $num2, "subtraction") . "<br>";
+    echo "$num1 * $num2 = " . calculator($num1, $num2, "multiplication") . "<br>";
+    echo "$num1 / $num2 = " . calculator($num1, $num2, "division") . "<br>";
+} catch(InvalidArgumentException $e) {
+    echo $e->getMessage() . "<br>";
+}

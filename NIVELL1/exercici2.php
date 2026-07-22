@@ -8,7 +8,7 @@ echo "<br>";
 echo strtoupper($string);
 echo "<br>";
 
-echo strlen($string);
+echo $string . " have " . mb_strlen($string) . " characters";
 echo "<br>";
 
 echo strrev($string);
@@ -19,7 +19,7 @@ $variable = "Aquest es el curs de PHP";
 
 echo $string . " " . $variable;
 
-?>
+
 
 
 
