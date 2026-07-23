@@ -1,32 +1,28 @@
 <?php
 
-function eratostenes($numero)
+function getPrimenumber($maxNum)
 {
-    $esPrimo = [];
+    if ($maxNum < 2) return [];
 
-    for ($i = 0; $i <= $numero; $i++) {
-        $esPrimo[$i] = true;
-    }
+    $prime = [];
 
-    $esPrimo[0] = false;
-    $esPrimo[1] = false;
+    for ($i = 2; $i <= $maxNum; $i++) 
+        $prime[$i] = true;
 
-    for ($i = 2; $i * $i <= $numero; $i++) {
-        if ($esPrimo[$i] == true) {
+    for ($i = 2; $i * $i <= $maxNum; $i++) {
+        if ($prime[$i]) {
 
-            for ($j = $i * $i; $j <= $numero; $j = $j + $i) {
-                $esPrimo[$j] = false;
+            for ($j = $i * $i; $j <= $maxNum; $j = $j + $i) {
+                $prime[$j] = false;
             }
         }
     }
-
-    for ($i = 2; $i <= $numero; $i++) {
-        if ($esPrimo[$i] == true) {
-            echo $i . " ";
-        }
+$primes = [];
+foreach ($prime as $num => $isPrime) {
+    if ($isPrime){
+        $primes[] = $num;
     }
 }
-
-eratostenes(20);
-
-?>
+return $primes;
+}
+echo implode (' ', getPrimenumber(20));

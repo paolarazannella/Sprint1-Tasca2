@@ -1,21 +1,20 @@
 <?php
 
-function precio($minutos)
+function calculatePrice($minutes)
 {
-    if ($minuts <= 0) {
+    if ($minutes <= 0) {
         return "Error: tiene que ser mayor que 0";
     }
 
-    if ($minutos <= 3) {
+    if ($minutes <= 3) {
         return 10;
     } else {
-        $minutosExtra = $minutos - 3;
-        $precioTotal = 10 + ($minutosExtra * 5);
+        $extraMinutes = $minutes - 3;
+        $totalPrice = 10 + ($extraMinutes * 5);
 
-        return $preuTotal;
+        return $totalPrice;
     }
 }
-
-echo "Precio a pagar: " . precio(5) . " centimos";
-
-?>
+try { echo "Precio a pagar: " . calculatePrice(5) . " centimos";
+}catch(InvalidArgumentException $e) {
+    echo $e->getMessage();}
