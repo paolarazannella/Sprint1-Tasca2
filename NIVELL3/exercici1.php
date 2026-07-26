@@ -1,26 +1,28 @@
 <?php
-
+declare(strict_types=1);
 function getPrimenumber($maxNum)
 {
     if ($maxNum < 2) return [];
 
     $prime = [];
 
-    for ($i = 2; $i <= $maxNum; $i++) 
-        $prime[$i] = true;
+    for ($number = 2; $number <= $maxNum; $number++) 
+        $prime[$number] = true;
 
-    for ($i = 2; $i * $i <= $maxNum; $i++) {
-        if ($prime[$i]) {
+    for ($number = 2; $number <= $maxNum; $number++) {
+        if ($prime[$number]) {
 
-            for ($j = $i * $i; $j <= $maxNum; $j = $j + $i) {
-                $prime[$j] = false;
+            for ($multiple = $number * 2;
+             $multiple <= $maxNum; 
+             $multiple = $multiple + $number) {
+                $prime[$multiple] = false;
             }
         }
     }
 $primes = [];
-foreach ($prime as $num => $isPrime) {
+foreach ($prime as $number => $isPrime) {
     if ($isPrime){
-        $primes[] = $num;
+        $primes[] = $number;
     }
 }
 return $primes;
